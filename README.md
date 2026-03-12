@@ -4,7 +4,7 @@
 > [!WARNING]  
 > you must be root
 
-> [!INFO]  
+> [!NOTE]  
 > If curl is not found (command not found), install it from the repository:
 > ```shell
 > apt install curl -y
