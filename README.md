@@ -2,7 +2,7 @@
 > * tested on debian 13 only 
 > * you must be root
 
-> [!NOTE]  
+> [!TIP]  
 > If curl is not found (command not found), install it from the repository:
 > ```shell
 > apt install curl -y
