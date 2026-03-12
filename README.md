@@ -1,8 +1,6 @@
 > [!WARNING]  
-> tested on debian 13 only
-
-> [!WARNING]  
-> you must be root
+> * tested on debian 13 only 
+> * you must be root
 
 > [!NOTE]  
 > If curl is not found (command not found), install it from the repository:
