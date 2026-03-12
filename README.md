@@ -8,7 +8,7 @@
 > apt install curl -y
 > ```
 > or y can use wget
-> '''shell
+> ```shell
 > wget \<link to script\> && bash \<script_name\>
 > ```
 
