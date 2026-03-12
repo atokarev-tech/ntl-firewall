@@ -9,7 +9,7 @@
 > ```
 > or y can use wget
 > ```shell
-> wget \<link to script\> && bash \<script_name\>
+> wget <link to script> && bash <script_name>
 > ```
 
 # Firewall script
