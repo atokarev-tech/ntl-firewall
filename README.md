@@ -1,9 +1,22 @@
-## Download script
+# Firewall script
+> [!WARNING]  
+> tested on debian 13 only
+
+> [!WARNING]  
+> you must be root
+
 ```shell
 curl -O https://raw.githubusercontent.com/atokarev-tech/ntl-firewall/refs/heads/main/ntl_firewall_install.sh && bash ntl_firewall_install.sh
 ```
+
 If curl is not found (command not found), install it from the repository:
 ```shell
-apt install curl
+apt install curl -y
 ```
-⚠️ tested on debian 13 only
+
+
+# DHCP script
+
+```shell
+curl -O https://raw.githubusercontent.com/atokarev-tech/ntl-firewall/refs/heads/main/ntl_dhcp_install.sh && bash ntl_dhcp_install.sh
+```
