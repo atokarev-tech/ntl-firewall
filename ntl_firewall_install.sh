@@ -10,27 +10,27 @@ NC='\033[0m' # No Color
 
 # Функции для логирования
 log_info() {
-    echo -e "ℹ️${BLUE} $1"
+    echo -e "ℹ️${BLUE} $1${NC}"
 }
 
 log_success() {
-    echo -e "✅${GREEN} $1"
+    echo -e "✅${GREEN} $1${NC}"
 }
 
 log_warning() {
-    echo -e "⚠️${YELLOW} $1"
+    echo -e "⚠️${YELLOW} $1${NC}"
 }
 
 log_error() {
-    echo -e "❌${RED} $1"
+    echo -e "❌${RED} $1${NC}"
 }
 
 log_input() {
-    echo -e "${NC}$1"
+    echo -e "${NC}$1${NC}"
 }
 
 log_comment() {
-    echo -e "${BLUE}$1"
+    echo -e "${BLUE}$1${NC}"
 }
 
 # Функция проверки прав root
@@ -90,7 +90,6 @@ main() {
     
     # Запрос параметров с валидацией
     while true; do
-	    log_input ""
         read -p "Введите WAN IP: " wanip
         if validate_ip "$wanip"; then
             break
@@ -100,7 +99,6 @@ main() {
     done
     
     while true; do
-	    log_input ""
         read -p "Введите название WAN-интерфейса (прим. eth0): " waniface
         if validate_interface "$waniface"; then
             break
@@ -109,11 +107,9 @@ main() {
         fi
     done
     
-    log_input ""
     read -p "Введите WAN Broadcast: " wanbrd
     
     while true; do
-	    log_input ""
         read -p "Введите LAN IP: " lanip
         if validate_ip "$lanip"; then
             break
@@ -123,7 +119,6 @@ main() {
     done
     
     while true; do
-	    log_input ""
         read -p "Введите название LAN-интерфейса (прим. eth1): " laniface
         if validate_interface "$laniface"; then
             break
