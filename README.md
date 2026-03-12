@@ -7,6 +7,9 @@
 > ```shell
 > apt install curl -y
 > ```
+> or y can use wget
+> '''shell
+> wget <link to script> && bash <script_name>
 
 # Firewall script
 
