@@ -11,7 +11,7 @@
 > ```
 > или можно использовать wget
 > ```shell
-> wget <link_to_script> && bash <script_name>
+> wget <ссылка_на_скрипт> && bash <имя_скрипта>
 > ```
 
 # Firewall
