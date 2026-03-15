@@ -12,6 +12,9 @@
 > vim \
 > htop \
 > nmap \
+> git \
+> lynx \
+> pandoc \
 > iftop \
 > curl \
 > mtr \
