@@ -6,9 +6,8 @@
 
 > [!TIP]
 > **Установите базовый набор пакетов для администрирования и диагностики сервера/сети** одной командой:
-> 
 > ```shell
-> apt install -y \
+> apt install -qq -y \
 > vim \
 > htop \
 > nmap \
@@ -28,6 +27,8 @@
 > iperf3 \
 > ethtool
 > ```
+> [![packages faq](https://img.shields.io/badge/packages-faq-blue)](https://github.com/atokarev-tech/ntl-firewall/blob/main/packages_faq.md)
+> 
 > Выполняется массовая установка утилит для системного администрирования и сетевой диагностики. Включая текстовый редактор (`vim`), сетевые сканеры (`nmap`, `mtr`), мониторинг трафика (`iftop`), менеджер процессов (`htop`), инструменты для работы с сетью (`curl`, `net-tools`, `ethtool`), OpenVPN, терминальный мультиплексор (`tmux`) и другие вспомогательные средства.
 > 
 
@@ -38,7 +39,10 @@
 *   Базовую защиту (входящие соединения запрещены, кроме явно разрешенных портов).
 *   Управление через systemd (`start/stop/restart`).
 
-**Краткий алгоритм работы:**
+```shell
+curl -O https://raw.githubusercontent.com/atokarev-tech/ntl-firewall/refs/heads/main/ntl_firewall_install.sh && bash ntl_firewall_install.sh
+```
+**Алгоритм работы:**
 
 1.  **Проверка окружения:** Запуск от root, установка `iptables` (если отсутствует).
 2.  **Интерактивный сбор параметров:**
@@ -51,15 +55,17 @@
 4.  **Создание systemd-сервиса:** `ntl-firewall.service` для автозапуска и управления правилами как службой.
 5.  **Настройка сети:** Добавляет статический IP для LAN-интерфейса в `/etc/network/interfaces` и перезапускает сеть.
 
-```shell
-curl -O https://raw.githubusercontent.com/atokarev-tech/ntl-firewall/refs/heads/main/ntl_firewall_install.sh && bash ntl_firewall_install.sh
-```
+
 
 ## DHCP
 
 Этот скрипт автоматизирует установку и настройку **DHCP-сервера (`isc-dhcp-server`)** в Linux. Разворачивает **полноценный DHCP-сервер** в заданной подсети с валидацией вводимых данных и автоматическим расчетом сетевых параметров.
 
-**Краткий алгоритм работы:**
+```shell
+curl -O https://raw.githubusercontent.com/atokarev-tech/ntl-firewall/refs/heads/main/ntl_dhcp_install.sh && bash ntl_dhcp_install.sh
+```
+
+**Алгоритм работы:**
 
 1.  **Интерактивный сбор параметров:**
     *   Запрашивает сетевой интерфейс (с проверкой существования).
@@ -74,14 +80,16 @@ curl -O https://raw.githubusercontent.com/atokarev-tech/ntl-firewall/refs/heads/
 4.  **Запуск:** Включает автозагрузку, запускает сервис и проверяет его статус и валидность конфига.
 5.  **Вывод:** Показывает итоговые параметры и полезные команды для мониторинга.
 
-```shell
-curl -O https://raw.githubusercontent.com/atokarev-tech/ntl-firewall/refs/heads/main/ntl_dhcp_install.sh && bash ntl_dhcp_install.sh
-```
+
 
 ## DNS
 Данный скрипт автоматизирует установку и первичную настройку **DNS-сервера на базе `dnsmasq`** в Linux. Разворачивает **локальный форвардящий DNS-сервер** с логированием и возможностью ручного добавления локальных зон (закомментированные строки `address=` в конце).
 
-**Краткий алгоритм работы:**
+```shell
+curl -O https://raw.githubusercontent.com/atokarev-tech/ntl-firewall/refs/heads/main/ntl_dns_install.sh && bash ntl_dns_install.sh
+```
+
+**Алгоритм работы:**
 
 1.  **Подготовка:** Обновляет список пакетов (`apt update`) и устанавливает `dnsmasq`.
 2.  **Бэкап:** Сохраняет оригинальный конфиг (`/etc/dnsmasq.conf_orig`).
@@ -94,6 +102,4 @@ curl -O https://raw.githubusercontent.com/atokarev-tech/ntl-firewall/refs/heads/
     *   Включает подробное логирование всех DNS-запросов (в `/var/log/dnsmasq-queries.log`).
 5.  **Применение:** Проверяет конфиг на ошибки (`dnsmasq --test`), добавляет в автозагрузку и перезапускает сервис.
 
-```shell
-curl -O https://raw.githubusercontent.com/atokarev-tech/ntl-firewall/refs/heads/main/ntl_dns_install.sh && bash ntl_dns_install.sh
-```
+
